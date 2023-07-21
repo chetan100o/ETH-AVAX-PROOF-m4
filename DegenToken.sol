@@ -28,13 +28,17 @@ contract DegenToken is ERC20, Ownable,ERC20Burnable  {
         _mint(to, amount);
     }
 
+      function burnTokens(uint256 amount) external {
+        _burn(msg.sender, amount);
+    }
+
     function transferTokens(address receiver, uint256 amount) external {
         require(balanceOf(msg.sender) >= amount, "Insufficient Balance in your account");
         approve(msg.sender, amount);
         transferFrom(msg.sender, receiver, amount);
     }
 
-    function redeemTokens(uint8 ItemListNumber) external payable returns (string memory) {
+    function redeemTokens(uint256 ItemListNumber) external payable returns (string memory) {
         require(ItemListNumber > 0 && ItemListNumber <= _storeItemLists.length, "choice not avilable for you");
         ItemList memory itemList = _storeItemLists[ItemListNumber-1];
         require(this.balanceOf(msg.sender) >= itemList.price, "Insufficient Balance in your account");
@@ -46,18 +50,18 @@ contract DegenToken is ERC20, Ownable,ERC20Burnable  {
     function checkBalance() external view returns (uint256) {
         return balanceOf(msg.sender);
     }
-
-    function burnTokens(uint256 amount) external {
-        _burn(msg.sender, amount);
+  
+  function getItemDetails(uint256 Item) external view  returns (string memory, uint256) {
+        return (_storeItemLists[Item].name, _storeItemLists[Item].price );
     }
 
     function showStoreItemLists() external view returns (string memory) {
         string memory response = "Available ItemLists are shown as:";
 
         for (uint i = 0; i < _storeItemLists.length; i++) {
-            response = string.concat(response, "\n", Strings.toString(i+1), ". ", _storeItemLists[i].name);
-        }
-
+            response = string.concat(response, "\n", Strings.toString(i+1), ". ", _storeItemLists[i].name );
+            }
+ 
         return response;
     }
 }
