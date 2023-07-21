@@ -1,7 +1,7 @@
 # ETH-AVAX-PROOF-m4
-# Degen metal ERC20 Token
+# Degen Gaming ERC20 Token
 
-Welcome to the Degen metal ERC20 Token repository! This smart contract provides essential functionality for metal , including minting, transferring, redeeming, checking balances, and burning tokens.
+Welcome to the Degen Gaming ERC20 Token repository! This smart contract provides essential functionality for Degen Gaming, including minting, transferring, redeeming, checking balances, and burning tokens.
 
 ## Contract Details
 
@@ -39,4 +39,4 @@ To deploy the contract in your local development environment:
 
 ## License
 
-The Degen metalERC20 Token project is licensed under the MIT License. See the LICENSE file for more information.
+The Degen Gaming ERC20 Token project is licensed under the MIT License. See the LICENSE file for more information.
