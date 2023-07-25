@@ -24,7 +24,7 @@ contract DegenToken is ERC20, Ownable,ERC20Burnable  {
         _storeItemLists.push(ItemList(3,"silver", 100,"conductive"));
     }
 
-    function mint(address to, uint256 amount) private onlyOwner {
+    function mint(address to, uint256 amount) public onlyOwner {
         _mint(to, amount);
     }
 
