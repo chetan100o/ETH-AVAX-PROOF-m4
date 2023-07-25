@@ -49,7 +49,7 @@ contract DegenToken is ERC20, Ownable,ERC20Burnable  {
         return string.concat("Successfully redeemed tokens for ", itemList.name);
     }
 
-    function checkBalance() external view returns (uint256) {
+    function AcountBalance() external view returns (uint256) {
         return balanceOf(msg.sender);
     }
   
