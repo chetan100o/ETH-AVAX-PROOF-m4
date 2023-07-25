@@ -14,9 +14,9 @@ Welcome to the Degen Gaming ERC20 Token repository! This smart contract provides
 
 2. **Transferring Tokens**: Players can transfer their tokens to others effortlessly using the `transfer` function. Just provide the recipient's address and the token amount to be transferred.
 
-3. **Redeeming Tokens**: Excitingly, players can redeem their tokens for exclusive in-game items from the in-game store. To do this, call the `redeem` function and specify the item to be redeemed. (Additional item redemption logic can be added to the contract.)
+3. **Redeeming Tokens**: Excitingly, players can redeem their tokens for exclusive in-game items from the in-game store. To do this, call the `redeemItems` function and specify the item to be redeemed. (Additional item redemption logic can be added to the contract.)
 
-4. **Checking Token Balance**: Players can easily check their token balance at any time using the `balanceOf` function. Simply provide your account address to retrieve the balance.
+4. **Checking Token Balance**: Players can easily check their token balance at any time using the `AcountBalance` function. Simply provide your account address to retrieve the balance.
 
 5. **Burning Tokens**: Need to get rid of some tokens? No worries! Anyone can burn their own tokens by calling the `burn` function and specifying the amount to be burned.
 
