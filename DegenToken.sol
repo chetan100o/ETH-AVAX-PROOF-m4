@@ -55,7 +55,7 @@ contract DegenToken is ERC20, Ownable,ERC20Burnable  {
         return (_storeItemLists[Item].name, _storeItemLists[Item].price );
     }
 
-    function showStoreItemLists() external view returns (string memory) {
+    function MENU_ItemLists() external view returns (string memory) {
         string memory response = "Available ItemLists are shown as:";
 
         for (uint i = 0; i < _storeItemLists.length; i++) {
