@@ -53,7 +53,7 @@ contract DegenToken is ERC20, Ownable,ERC20Burnable  {
         return balanceOf(msg.sender);
     }
   
-  function getItemDetails(uint256 Item) external view  returns (string memory, uint256) {
+  function ItemDetails(uint256 Item) external view  returns (string memory, uint256) {
         return (_storage[Item].name, _storage[Item].price );
     }
 
