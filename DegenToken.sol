@@ -16,12 +16,12 @@ contract DegenToken is ERC20, Ownable,ERC20Burnable  {
         string iteminfo;
     }
 
-    ItemList[] private _storeItemLists;
+    ItemList[] private _storage;
 
     constructor() ERC20("Degen", "DGN") {
-        _storeItemLists.push(ItemList(1,"platinum", 400,"premium"));
-        _storeItemLists.push(ItemList(2,"gold", 200,"important"));
-        _storeItemLists.push(ItemList(3,"silver", 100,"conductive"));
+        _storage.push(ItemList(1,"platinum", 400,"premium"));
+        _storage.push(ItemList(2,"gold", 200,"important"));
+        _storage.push(ItemList(3,"silver", 100,"conductive"));
     }
 
     function mint(address to, uint256 amount) public onlyOwner {
@@ -41,8 +41,8 @@ contract DegenToken is ERC20, Ownable,ERC20Burnable  {
     }
 
     function redeemItems(uint256 ItemListNumber) external payable returns (string memory) {
-        require(ItemListNumber > 0 && ItemListNumber <= _storeItemLists.length, "choice not avilable for you");
-        ItemList memory itemList = _storeItemLists[ItemListNumber-1];
+        require(ItemListNumber > 0 && ItemListNumber <= _storage.length, "choice not avilable for you");
+        ItemList memory itemList = _storage[ItemListNumber-1];
         require(this.balanceOf(msg.sender) >= itemList.price, "Insufficient Balance in your account");
         approve(msg.sender, itemList.price);
         transferFrom(msg.sender, owner(), itemList.price);
@@ -54,14 +54,14 @@ contract DegenToken is ERC20, Ownable,ERC20Burnable  {
     }
   
   function getItemDetails(uint256 Item) external view  returns (string memory, uint256) {
-        return (_storeItemLists[Item].name, _storeItemLists[Item].price );
+        return (_storage[Item].name, _storage[Item].price );
     }
 
     function MENU_ItemLists() external view returns (string memory) {
         string memory response = "Available ItemLists are shown as:";
 
-        for (uint i = 0; i < _storeItemLists.length; i++) {
-            response = string.concat(response, "\n", Strings.toString(i+1), ". ", _storeItemLists[i].name );
+        for (uint i = 0; i < _storage.length; i++) {
+            response = string.concat(response, "\n", Strings.toString(i+1), ". ", _storage[i].name );
             }
  
         return response;
