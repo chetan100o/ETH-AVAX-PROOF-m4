@@ -25,10 +25,12 @@ contract DegenToken is ERC20, Ownable,ERC20Burnable  {
     }
 
     function mint(address to, uint256 amount) public onlyOwner {
-        _mint(to, amount);
+      require(amount > 0, "Amount must be greater than zero.");   
+     _mint(to, amount);
     }
 
-      function burnTokens(uint256 amount) external {
+      function Burn(uint256 amount) external {
+         require(amount > 0, "Amount must be greater than zero.");
         _burn(msg.sender, amount);
     }
 
